@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#f7f8fc"><meta name="description" content="Create and narrate mathematics lessons on an installable whiteboard.">
+  <link rel="manifest" href="manifest.webmanifest"><link rel="icon" href="icon.svg" type="image/svg+xml"><link rel="stylesheet" href="styles.css">
+  <title>MathStudio — Lesson whiteboard</title>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="MathStudio home"><span class="brand-mark">∑</span><span>MathStudio<small>LESSON STUDIO</small></span></a>
+    <div class="project-name"><input id="lessonTitle" aria-label="Lesson title" value="Untitled lesson"><span id="saveState">Saved in this browser</span></div>
+    <div class="top-actions"><button id="newBtn" class="quiet">New</button><button id="openBtn" class="quiet">Open</button><button id="saveBtn" class="quiet">Save</button><button id="exportProjectBtn" class="quiet">Download lesson</button><button id="installBtn" class="install" hidden>Install app</button></div>
+  </header>
+  <main class="layout">
+    <aside class="sidebar"><div class="side-heading"><div><span class="eyebrow">YOUR LESSON</span><h1>Steps</h1></div><button id="addStep" class="add" title="Add step" aria-label="Add step">＋</button></div>
+      <ol id="stepList" class="step-list"></ol>
+      <div class="side-bottom"><div class="tip"><span>✦</span><p>Build your explanation one clear step at a time.</p></div><button id="importProjectBtn" class="full secondary">Import lesson file</button><input id="fileInput" type="file" accept=".mathstudio,.json,application/json" hidden></div>
+    </aside>
+    <section class="studio"><div class="studio-heading"><div><span class="eyebrow">WORKSPACE</span><h2 id="stepHeading">Step 1</h2></div><div class="view-actions"><label class="select-label">Reveal <select id="revealMode"><option value="handwriting">Write on</option><option value="instant">Show all</option></select></label><button id="deleteStepBtn" class="quiet">Delete step</button><button id="fullscreenBtn" class="icon-button" title="Full screen" aria-label="Full screen">⛶</button></div></div>
+      <div class="work-card">
+        <div class="board-title"><span><i></i> ONE SHARED WHITEBOARD</span><span>Type and draw on the same 16:9 board</span></div>
+        <div class="canvas-wrap type-mode" id="canvasWrap"><canvas id="board" aria-label="Whiteboard drawing layer"></canvas><textarea id="working" class="board-input" placeholder="Tap or click here to type on the board…" spellcheck="false" aria-label="Type directly on the whiteboard"></textarea></div>
+        <div class="board-toolbar"><div class="tool-group main-tools" role="group" aria-label="Board tools"><button data-tool="type" class="tool active" title="Type on board">⌨ <span>Type</span></button><button data-tool="draw" class="tool" title="Draw on board">✎ <span>Draw</span></button><button data-tool="eraser" class="tool" title="Eraser">⌫ <span>Eraser</span></button><button data-tool="pointer" class="tool" title="Pointer">➤ <span>Pointer</span></button><button data-tool="highlight" class="tool" title="Highlight">▰ <span>Highlight</span></button></div><div class="tool-group history-tools"><button id="undoBtn" class="tool" title="Undo">↶ <span>Undo</span></button><button id="redoBtn" class="tool" title="Redo">↷ <span>Redo</span></button><button id="clearBoard" class="tool danger" title="Clear text and drawings from this board">Clear board</button></div></div>
+        <div class="palette-area"><div class="palette-label">MATH SYMBOLS <span>Tap to insert on the board</span></div><div id="palette" class="palette" aria-label="Math symbol palette"></div></div>
+      </div>
+      <div class="narration"><div class="mic-icon">♫</div><div class="narration-copy"><b>Speak while you type</b><span id="audioStatus">Press Record, talk and type together, then press Stop.</span></div><div class="audio-actions"><button id="recordBtn" class="record"><span class="record-dot"></span> Record</button><button id="playAudioBtn" class="quiet" disabled>▶ Play</button><button id="deleteAudioBtn" class="quiet" hidden>Remove</button></div><audio id="audioPlayer" hidden></audio></div>
+    </section>
+    <aside class="preview-panel"><div class="preview-heading"><div><span class="eyebrow">LESSON PREVIEW</span><h2>Preview</h2></div><button id="playLesson" class="play-main" aria-label="Play lesson">▶</button></div><div class="preview-screen"><div class="preview-screen-inner"><span id="previewStepLabel" class="preview-tag">STEP 1 OF 1</span><div id="previewText" class="preview-text">Your lesson will appear here</div><canvas id="previewCanvas"></canvas></div></div><div class="preview-controls"><button id="prevStep" class="quiet">← Previous</button><button id="nextStep" class="quiet">Next →</button></div><div class="timeline-heading"><b>Timeline</b><span id="durationLabel">About 0:05</span></div><div id="timeline" class="timeline"></div><div class="export-box"><div><b>Ready to share?</b><span>Download a silent video preview</span></div><button id="exportVideo" class="export-button">Export video <span>↗</span></button><small>1080p WebM only. MP4 and narration in the exported video need server rendering. Step recordings remain available in the lesson.</small></div></aside>
+  </main>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="app.js" defer></script>
+</body>
+</html>
