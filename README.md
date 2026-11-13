@@ -1,15 +1,12 @@
 # MathStudio installable website
 
-This folder is a static website ready to publish on Netlify. Once hosted over HTTPS, visitors can install it from Edge or Chrome and use it offline after the first visit.
+This folder is the MathStudio static website. It is published publicly with GitHub Pages from the `Napari21/mathstudio` repository. Visitors can install it in Edge or Chrome and use it offline after the first visit.
 
-## Publish on Netlify
+## Publish on GitHub Pages
 
-1. Sign in to Netlify and open **Add new site → Deploy manually** (or visit [Netlify Drop](https://app.netlify.com/drop)).
-2. Drag the complete `MathStudioWeb` folder onto the deploy area. Do not upload only `index.html`; the styles, scripts, manifest, icon, and service worker are needed.
-3. Netlify will give the site a public `*.netlify.app` address. Open it in Microsoft Edge or Chrome.
-4. Choose **Install app** in MathStudio, or use the browser's **Install this site as an app** menu item.
+The `.github/workflows/pages.yml` workflow publishes the files from the `main` branch. GitHub Pages is set to deploy through **GitHub Actions**. The site address is [https://napari21.github.io/mathstudio/](https://napari21.github.io/mathstudio/).
 
-The site can be tested locally for layout by opening `index.html`, but installing, offline caching, and microphone recording need HTTPS (or a localhost web server). No Python or desktop program is required after publishing.
+The repository and source files are public. HTTPS is used for installation, offline caching, and microphone access. Choose **Install app** in Edge or Chrome to install MathStudio.
 
 ## Using MathStudio
 
@@ -32,4 +29,4 @@ Video export is currently silent WebM; MP4 encoding and narration mixed into exp
 
 - `index.html`, `styles.css`, `app.js`: the web app
 - `manifest.webmanifest`, `icon.svg`, `sw.js`: install and offline support
-- `netlify.toml`, `_headers`: static hosting settings
+- `.github/workflows/pages.yml`: GitHub Pages deployment workflow
