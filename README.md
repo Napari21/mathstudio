@@ -14,6 +14,8 @@ The repository must remain public for GitHub Free Pages. The site and source are
 - Choose **Draw**, **Eraser**, **Pointer**, or **Highlight** to sketch on top of the typed working on the same board. Choose **Type** again to continue entering text.
 - Use **Clear board** to remove both the text and drawings. Undo restores a clear; Undo and Redo also apply to drawing strokes.
 - Click or tap a palette symbol to insert it at the text cursor on the board.
+- Choose Whiteboard, Blackboard, or Grid under Background. Blackboard writing and pen strokes switch to light chalk colors. Import background accepts PNG, JPEG, or WebP images up to 20 MB; the image is resized and embedded in the lesson file.
+- Use **A−** and **A+** to adjust typed writing from 24 to 96 pixels. The side math keyboard has numerator and denominator boxes for inserting a fraction, plus square-root, power, and subscript templates and a broader set of math/science symbols.
 - A lesson can stay on one board from beginning to end. While recording, keep writing and scroll the same board to continue; you do not need to add another step. Use **＋** only when you want a separate lesson segment.
 - Choose **Write on** or **Show all**, then use the preview controls or Play lesson to review the steps.
 - Press **Record**, allow microphone access, then speak while typing and scrolling the board. Press **Stop** when the continuous lesson is finished. Preview replays the voice with captured typing and scroll timing.
@@ -21,7 +23,7 @@ The repository must remain public for GitHub Free Pages. The site and source are
 
 ## Tested scope and limits
 
-The website MVP implements typing directly on the shared board, editable multi-step working, responsive mouse/touch/stylus drawing tools, step narration capture and playback, preview/timeline, automatic browser saving, lesson-file download/import, install manifest, offline service worker, and 1920×1080 video export with the recorded narration. The export uses MP4 when the browser supports it and otherwise uses WebM.
+The website MVP implements typing directly on the shared board, editable multi-step working, selectable white/black/grid/image board backgrounds, font sizing, a docked math keyboard with fraction/templates, responsive mouse/touch/stylus drawing tools, step narration capture and playback, preview/timeline, automatic browser saving, lesson-file download/import, install manifest, offline service worker, and 1920×1080 video export with the recorded narration. The export uses MP4 when the browser supports it and otherwise uses WebM.
 
 Video export combines the board and narration, follows the saved recording duration, and displays a render timer. Browser rendering takes approximately the lesson duration to complete; the page must remain open until download begins. Output is MP4 where supported and WebM otherwise. The board is larger on desktop and square on phones, with larger writing text. The progressive reveal animates typed text by character, not actual pen strokes. Voice, typed changes, and board scroll position are captured together on the active step for lesson preview. Recording continues until you press Stop; extra steps are optional segments, not required for long lessons. There is no automatic speech transcription or word-level alignment. Lessons stay in the browser unless manually downloaded, so there is no cloud backup or synchronization. Microphone access requires a secure HTTPS site and browser permission.
 
